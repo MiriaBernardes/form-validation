@@ -1,8 +1,5 @@
 export default function validate(values) {
-  let errors = {
-    email: '',
-    password: ''
-  };
+  let errors = {};
 
   const PATTERN_EMAIL = RegExp(/\S+@\S+\.\S+/)
 
