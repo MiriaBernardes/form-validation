@@ -12,11 +12,14 @@ export default function Form() {
     password: ''
   }
 
-  const {handleChange, handleSubmit, values} = useFormValidation(submit, initialValues, validate);
+  const {handleChange, handleSubmit, values, errors} = useFormValidation(
+    submit, 
+    initialValues, 
+    validate
+  );
   
   function submit(e) {
-    e.preventDefault();
-    console.log(e.target.email.value);
+    console.log('the form was submitting');
   }
 
   return (
@@ -32,6 +35,7 @@ export default function Form() {
         value={values.email}
         onChange={handleChange}
       />
+      {errors.email && <p>{errors.email}</p>}
       <label htmlFor="password">Password</label>
       <input 
         id="password"
@@ -40,6 +44,7 @@ export default function Form() {
         value={values.password}
         onChange={handleChange}
       />
+      {errors.email && <p>{errors.password}</p>}
       <br/>
       <button type="submit">enviar</button>
     </form>
